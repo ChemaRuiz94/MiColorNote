@@ -6,11 +6,11 @@ import kotlin.collections.ArrayList
 class Tarea (id_tar: Int, t: String, img : String)  {
 
     var id_tarea = id_tar
-    var texto = t
-    var realizada : Boolean = false
-    var foto : String = img
+    var texto_tarea = t
+    var tarea_realizada : Boolean = false
+    var foto_tarea : String = img
 
     override fun toString(): String {
-        return texto.toString()
+        return texto_tarea.toString()
     }
 }
