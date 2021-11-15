@@ -3,7 +3,7 @@ package modelo
 import java.util.*
 import kotlin.collections.ArrayList
 
-class NotaDeTareas(id: Int, t: String, f: Date, h: String, lista: ArrayList<Tarea>) :
+class NotaDeTareas(id: Int, t: String, f: String, h: String, lista: ArrayList<Tarea>) :
     Nota(id = id, tit = t, fech = f, hora = h) {
 
     var listaTareas = lista
