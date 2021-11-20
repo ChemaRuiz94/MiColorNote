@@ -37,9 +37,8 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
             view.dismiss()}.setPositiveButton("Lista de tareas"){ view,_ ->
-            val intent = Intent(this, AddNoteActivity::class.java)
-
-            startActivity(intent)
+            //val intent = Intent(this, AddNoteActivity::class.java)
+            //startActivity(intent)
             view.dismiss()}.create().show()
 
         //val myIntent: Intent =  Intent(this, AddNoteActivity::class.java)

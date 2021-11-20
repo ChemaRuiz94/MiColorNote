@@ -2,12 +2,17 @@ package adapter
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import bd.Conexion
+import com.example.micolornote.AddNoteActivity
 import com.example.micolornote.R
 import modelo.Nota
 
@@ -49,8 +54,15 @@ class AdaptadorRecyclerV : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder>{
             fecha.text = valorSeleccionado.fecha
             hora.text = valorSeleccionado.hora_nota
 
+
             itemView.setOnClickListener(View.OnClickListener {
-                Toast.makeText(context, valorSeleccionado.toString(), Toast.LENGTH_SHORT).show()
+                //Toast.makeText(context, "PROXIMAMENTE - ESTO ES PARA BORRAR", Toast.LENGTH_SHORT).show()
+
+                AlertDialog.Builder(context).setTitle("¿Desea eliminar esta nota?").setNegativeButton("Eliminar"){ view, _ ->
+                    //elimina nota
+                    Conexion.delNotaText(context as AppCompatActivity,valorSeleccionado)
+                    view.dismiss()}.setPositiveButton("Cancelar"){ view,_ ->//cancela
+                    view.dismiss()}.create().show()
             })
         }
     }

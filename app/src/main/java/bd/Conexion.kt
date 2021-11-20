@@ -15,7 +15,7 @@ object Conexion {
 
         //registro nota
         var regNota = ContentValues()
-        regNota.put("${Constantes.ID_NOTA}",n.id_nota)
+        regNota.put("${Constantes.ID_NOTA}", n.id_nota)
         regNota.put("${Constantes.TITULO_NOTA}", n.titulo)
         regNota.put("${Constantes.FECHA_NOTA}", n.fecha)
         regNota.put("${Constantes.HORA_NOTA}", n.hora_nota)
@@ -29,7 +29,23 @@ object Conexion {
         bd.close()
     }
 
-    fun obtenerNotas(contexto: AppCompatActivity):ArrayList<Nota>{
+    fun delNotaText(contexto: AppCompatActivity, n: Nota): Int {
+        val admin = AdminSQLiteConexion(contexto, Constantes.nombreBD, null, 1)
+        val bd = admin.writableDatabase
+        val id = n.id_nota
+        var cant = bd.delete("${Constantes.TAB_NOTAS}", "${Constantes.ID_NOTA}='${id}'", null)
+        val cant2 =
+            bd.delete("${Constantes.TAB_NOTAS_TEXT}", "${Constantes.ID_NOTA_TEXT}='${id}'", null)
+
+        bd.close()
+        if (cant == cant2) {
+            return cant2
+        } else {
+            return cant
+        }
+    }
+
+    fun obtenerNotas(contexto: AppCompatActivity): ArrayList<Nota> {
         var notas: ArrayList<Nota> = ArrayList(1)
         val admin = AdminSQLiteConexion(contexto, Constantes.nombreBD, null, 1)
         val bd = admin.writableDatabase
