@@ -3,9 +3,9 @@ package modelo
 import java.io.Serializable
 import java.util.*
 
-open class Nota(id: Int, tit: String, fech: String, hora: String) : Serializable {
+open class Nota(id : String, tit: String, fech: String, hora: String) : Serializable {
 
-    var id_nota: Int = id
+    val id_nota: String = id
     var titulo: String = tit
     var fecha: String = fech
     var hora_nota: String = hora

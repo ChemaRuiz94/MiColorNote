@@ -1,8 +1,11 @@
 package Auxiliar
 
+import java.text.SimpleDateFormat
+
 object Constantes {
+
     //nombre de la base de datos
-    val nombreBD : String = "administracionMiColorNote.db3"
+    val nombreBD : String = "administracion1.db3"
 
     //constantes de la tabla notas
     val TAB_NOTAS : String = "tabla_notas"
@@ -19,6 +22,24 @@ object Constantes {
     val HORA_NOTA_TEXT : String = "hora_nota_texto"
     val CONTENIDO_NOTA_TEXT : String = "contenido_nota_texto"
 
+    //constantes de la tabla tareas
+    val TAB_TAREAS : String = "tabla_tareas"
+    val ID_TAREA : String = "id_tarea"
+    val ID_TAREA_CRUCE : String = "id_tarea_nota"
+    val TEXTO_TAREA : String = "texto_tarea"
+    val TAREA_REALIZADA : String = "tarea_realizada"
+    val FOTO_TAREA : String = "foto_tarea"
+
+
+    //constantes DateFormat
+    val completeDateFormat = SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+    val simpleDateFormat = SimpleDateFormat("MM.dd.HH")
+    val hourDateFormat = SimpleDateFormat("mm.ss")
+
+
+
+    /*
+
     //constantes de la tabla notasDeTexto
     val TAB_NOTAS_LISTA_TAREAS : String = "tabla_notas_lista_tareas"
     val ID_NOTA_LISTA_TAREAS : String = "id_nota_lista_tareas"
@@ -27,15 +48,12 @@ object Constantes {
     val HORA_NOTA_LISTA_TAREAS : String = "hora_nota_lista_tareas"
 
 
-    //constantes de la tabla tareas
-    val TAB_TAREAS : String = "tabla_tareas"
-    val ID_TAREA : String = "id_tarea"
-    val TEXTO_TAREA : String = "texto_tarea"
-    val TAREA_REALIZADA : String = "tarea_realizada"
-    val FOTO_TAREA : String = "foto_tarea"
+
 
     //constantes de la tabla cruzada
     val TAB_TAREAS_LISTA : String = "tabla_tareas_lista"
     val ID_TAREA_LISTA : String = "id_tarea_lista"
 
+
+     */
 }
