@@ -69,8 +69,13 @@ class AdaptadorRecyclerV : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder> {
             itemView.setOnClickListener(View.OnClickListener {
                 AlertDialog.Builder(context).setTitle("¿Desea Modificar esta nota?").setPositiveButton("Modificar"){ view, _ ->
                     // nota
-                    //Intent
-                    view.dismiss()}.setNegativeButton("Cancelar"){ view,_ ->//cancela
+                    var intentTextNote: Intent
+                    intentTextNote = Intent(context,AddNoteActivity::class.java)
+                    //intentTextNote.putExtra("nota",valorSeleccionado) as Nota
+                    context.startActivity(intentTextNote)
+
+                    view.dismiss()}.setNegativeButton("Cancelar"){ view,_ ->
+                    //cancela
                     view.dismiss()}.create().show()
             })
 
