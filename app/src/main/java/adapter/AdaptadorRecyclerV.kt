@@ -71,7 +71,7 @@ class AdaptadorRecyclerV : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder> {
                     // nota
                     var intentTextNote: Intent
                     intentTextNote = Intent(context,AddNoteActivity::class.java)
-                    //intentTextNote.putExtra("nota",valorSeleccionado) as Nota
+                    intentTextNote.putExtra("nota",valorSeleccionado) as Nota
                     context.startActivity(intentTextNote)
 
                     view.dismiss()}.setNegativeButton("Cancelar"){ view,_ ->
