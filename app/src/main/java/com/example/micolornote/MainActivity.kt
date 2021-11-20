@@ -30,6 +30,25 @@ class MainActivity : AppCompatActivity() {
         miRecyclerView.adapter = miAdapter
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        miRecyclerView = findViewById(R.id.rvVista)
+        miRecyclerView.setHasFixedSize(true)
+        miRecyclerView.layoutManager = LinearLayoutManager(this)
+        val miAdapter = AdaptadorRecyclerV(this, notas)
+        miRecyclerView.adapter = miAdapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        miRecyclerView = findViewById(R.id.rvVista)
+        miRecyclerView.setHasFixedSize(true)
+        miRecyclerView.layoutManager = LinearLayoutManager(this)
+        val miAdapter = AdaptadorRecyclerV(this, notas)
+        miRecyclerView.adapter = miAdapter
+    }
+
     fun btn_add_Note(view: View){
 
         AlertDialog.Builder(this).setTitle("¿Que tipo de nota quieres?").setNegativeButton("Nota de texto"){ view,_ ->
@@ -37,12 +56,9 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
             view.dismiss()}.setPositiveButton("Lista de tareas"){ view,_ ->
-            //val intent = Intent(this, AddNoteActivity::class.java)
-            //startActivity(intent)
+            //LISTA DE TAREAS
             view.dismiss()}.create().show()
 
-        //val myIntent: Intent =  Intent(this, AddNoteActivity::class.java)
-        //startActivity(myIntent)
     }
 
 
