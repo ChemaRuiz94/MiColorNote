@@ -1,7 +1,5 @@
 package adapter
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -14,24 +12,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import bd.Conexion
 import com.example.micolornote.AddNoteActivity
+import com.example.micolornote.MainActivity
 import com.example.micolornote.R
 import modelo.Nota
+import modelo.NotaDeTexto
 
 
+class AdaptadorRecyclerV(
+    private val context: AppCompatActivity,
+    private val notas: ArrayList<Nota>
+) : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder>() {
 
-
-
-class AdaptadorRecyclerV : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder> {
-    private var context: Activity
-    private var notas: ArrayList<Nota>? = null
-
-    constructor(context: Activity, notes: ArrayList<Nota>) {
-        this.context = context
-        this.notas = notes
-    }
 
     override fun getItemCount(): Int {
-        return this.notas?.size!!
+        return notas.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,8 +35,63 @@ class AdaptadorRecyclerV : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder> {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //holder?.item.text = this.valores!![position].toString()
-        val nota = this.notas!![position]
-        holder.bind(nota, context)
+        val nota = notas[position]
+        holder.titulo.text = nota.titulo
+        holder.fecha.text = nota.fecha
+        holder.hora.text = nota.hora_nota
+
+        holder.itemView.setOnLongClickListener(OnLongClickListener {
+            AlertDialog.Builder(context).setTitle("¿Desea eliminar esta nota?")
+                .setPositiveButton("Eliminar") { view, _ ->
+                    //elimina nota
+                    Conexion.delNotaText(context as AppCompatActivity, nota)
+                    //refresca la MainActivity
+                    var myIntent = Intent(context, MainActivity::class.java)
+                    context.startActivity(myIntent)
+                    view.dismiss()
+                }.setNegativeButton("Cancelar") { view, _ ->//cancela
+                    view.dismiss()
+                }.create().show()
+            false
+        })
+
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            AlertDialog.Builder(context).setTitle("¿Desea Modificar esta nota?")
+                .setPositiveButton("Modificar") { view, _ ->
+                    // Modificar nota
+                    checkModificar(nota,context)
+
+                    view.dismiss()
+                }.setNegativeButton("Cancelar") { view, _ ->
+                    //cancela
+                    view.dismiss()
+                }.create().show()
+        })
+    }
+
+    fun checkModificar(nota: Nota, context: AppCompatActivity){
+        if (nota.tipo == 1) {
+
+            //si el tipo es 1 es nota de Texto
+
+            var notaText: NotaDeTexto? = getNotaTexto(nota,context)
+            var intentTextNote: Intent = Intent(context, AddNoteActivity::class.java)
+            intentTextNote.putExtra("notaText", notaText)
+
+            context.startActivity(intentTextNote)
+
+        } else {
+            //si el tipo es 2 es nota de Tareas
+            Toast.makeText(context, "MODIFICAR LISTA DE TAREAS", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    fun getNotaTexto(nota: Nota, context: AppCompatActivity): NotaDeTexto? {
+        var nota: Nota? = Conexion.obtenerNota(context,nota.id_nota.toString())
+        var notaDeTexto : NotaDeTexto?  = Conexion.obtenerNotaTexto(context, nota?.id_nota.toString())
+
+        return notaDeTexto
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -51,34 +100,5 @@ class AdaptadorRecyclerV : RecyclerView.Adapter<AdaptadorRecyclerV.ViewHolder> {
         val fecha = view.findViewById<TextView>(R.id.txtFechaNota)
         val hora = view.findViewById<TextView>(R.id.txt_hora_nota)
 
-
-        fun bind(valorSeleccionado: Nota, context: Context) {
-            titulo.text = valorSeleccionado.titulo
-            fecha.text = valorSeleccionado.fecha
-            hora.text = valorSeleccionado.hora_nota
-
-            itemView.setOnLongClickListener(OnLongClickListener {
-                val al = AlertDialog.Builder(context).setTitle("¿Desea eliminar esta nota?").setPositiveButton("Eliminar"){ view, _ ->
-                //elimina nota
-                Conexion.delNotaText(context as AppCompatActivity,valorSeleccionado)
-                view.dismiss()}.setNegativeButton("Cancelar"){ view,_ ->//cancela
-                view.dismiss()}.create().show()
-                false
-            })
-
-            itemView.setOnClickListener(View.OnClickListener {
-                AlertDialog.Builder(context).setTitle("¿Desea Modificar esta nota?").setPositiveButton("Modificar"){ view, _ ->
-                    // nota
-                    var intentTextNote: Intent
-                    intentTextNote = Intent(context,AddNoteActivity::class.java)
-                    intentTextNote.putExtra("nota",valorSeleccionado) as Nota
-                    context.startActivity(intentTextNote)
-
-                    view.dismiss()}.setNegativeButton("Cancelar"){ view,_ ->
-                    //cancela
-                    view.dismiss()}.create().show()
-            })
-
-        }
     }
 }

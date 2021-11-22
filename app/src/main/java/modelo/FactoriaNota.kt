@@ -14,20 +14,20 @@ object FactoriaNota {
         return id
     }
 
-    fun gen_Nota(tit: String): Nota {
+    fun gen_Nota(tit: String, tipo: Int): Nota {
 
         var id = gen_Id_Nota()
         var time = Timestamp(System.currentTimeMillis())
         val fecha = Constantes.simpleDateFormat.format(time).toString()
         val hora = Constantes.hourDateFormat.format(time).toString()
 
-        val nota: Nota = Nota(id, tit, fecha, hora)
+        val nota: Nota = Nota(id, tit, fecha, hora,tipo)
         return nota
     }
 
     fun gen_NotaText(not: Nota, conten: String): NotaDeTexto {
         var notaDeTexto: NotaDeTexto =
-            NotaDeTexto(not.id_nota, not.titulo, not.fecha, not.hora_nota, conten)
+            NotaDeTexto(not.id_nota, not.titulo, not.fecha, not.hora_nota,not.tipo, conten)
         return notaDeTexto
     }
 }
