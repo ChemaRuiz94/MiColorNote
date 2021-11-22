@@ -7,16 +7,51 @@
     tools:context=".AddNoteActivity">
 
     <LinearLayout
-        android:layout_width="413dp"
-        android:layout_height="115dp"
-        android:orientation="horizontal"
+        android:layout_width="411dp"
+        android:layout_height="616dp"
+        android:background="@color/my_yellow_background"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:background="@color/my_brown_background">
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/ed_txt_multiline_notaText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/fondo_note"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="413dp"
+        android:layout_height="115dp"
+        android:background="@color/my_brown_background"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/ed_txt_titulo_notaText"
@@ -30,46 +65,16 @@
             android:inputType="textPersonName" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatint_btn_titulo_notaText"
-            android:layout_width="111dp"
-            android:layout_height="69dp"
-            android:layout_marginLeft="10dp"
+            android:id="@+id/floating_btn_save_notaText"
+            android:layout_width="110dp"
+            android:layout_height="59dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:clickable="true"
-            app:srcCompat="@android:drawable/ic_menu_edit"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="411dp"
-        android:layout_height="616dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="@color/my_yellow_background">
-
-        <EditText
-            android:id="@+id/ed_txt_multiline_notaText"
-            android:layout_width="match_parent"
-            android:layout_height="517dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_btn_save_notaText"
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="btn_saveNote"
             app:srcCompat="@android:drawable/ic_menu_save"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,7 @@
-package modelo
+package com.example.micolornote.modelo
 
-import java.util.*
-
-class NotaDeTexto(id: Int, t: String, f: String, h: String, cont: String) :
-    Nota(id = id, tit = t, fech = f, hora = h) {
+class NotaDeTexto(id_notaText: String, t: String, f: String, h: String, tip: Int, cont: String) :
+    Nota(id= id_notaText, tit = t, fech = f, hora = h, tip = tip) {
 
     var contenido: String = cont
 
