@@ -63,11 +63,16 @@ class MainActivity : AppCompatActivity() {
     fun btn_add_Note(view: View){
 
         AlertDialog.Builder(this).setTitle("¿Que tipo de nota quieres?").setNegativeButton("Nota de texto"){ view,_ ->
-            val intent = Intent(this, AddNoteActivity::class.java)
 
+            //NOTAS DE TEXTO
+            val intent = Intent(this, AddNoteActivity::class.java)
             startActivity(intent)
-            view.dismiss()}.setPositiveButton("Lista de tareas"){ view,_ ->
+            view.dismiss()}
+
+            .setPositiveButton("Lista de tareas"){ view,_ ->
             //LISTA DE TAREAS
+                val intent = Intent(this, AddListaActivity::class.java)
+                startActivity(intent)
             view.dismiss()}.create().show()
 
     }
