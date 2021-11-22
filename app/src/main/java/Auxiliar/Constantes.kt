@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 object Constantes {
 
     //nombre de la base de datos
-    val nombreBD : String = "administracion1.db3"
+    val nombreBD : String = "administracion3.db3"
 
     //constantes de la tabla notas
     val TAB_NOTAS : String = "tabla_notas"
@@ -13,6 +13,7 @@ object Constantes {
     val TITULO_NOTA : String = "titulo_nota"
     val FECHA_NOTA : String = "fecha_nota"
     val HORA_NOTA : String = "hora_nota"
+    val TIPO_NOTA : String = "tipo_nota"
 
     //constantes de la tabla notasDeTexto
     val TAB_NOTAS_TEXT : String = "tabla_notas_texto"
@@ -33,8 +34,8 @@ object Constantes {
 
     //constantes DateFormat
     val completeDateFormat = SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
-    val simpleDateFormat = SimpleDateFormat("MM.dd.HH")
-    val hourDateFormat = SimpleDateFormat("mm.ss")
+    val simpleDateFormat = SimpleDateFormat("yyyy/MM/dd")
+    val hourDateFormat = SimpleDateFormat("HH:mm")
 
 
 
