@@ -1,7 +1,6 @@
-package modelo
+package com.example.micolornote.modelo
 
 import java.io.Serializable
-import java.util.*
 
 open class Nota(id : String, tit: String, fech: String, hora: String, tip: Int) : Serializable {
 

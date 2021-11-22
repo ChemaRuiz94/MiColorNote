@@ -1,6 +1,6 @@
-package modelo
+package com.example.micolornote.modelo
 
-import Auxiliar.Constantes
+import com.example.micolornote.auxiliar.Constantes
 import java.sql.Timestamp
 
 object FactoriaNota {

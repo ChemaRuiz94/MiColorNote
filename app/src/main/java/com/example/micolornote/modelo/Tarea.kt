@@ -1,7 +1,4 @@
-package modelo
-
-import java.util.*
-import kotlin.collections.ArrayList
+package com.example.micolornote.modelo
 
 class Tarea ( t: String, img : String)  {
 

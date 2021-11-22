@@ -1,22 +1,16 @@
 package com.example.micolornote
 
-import Auxiliar.Constantes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import bd.Conexion
+import com.example.micolornote.bd.Conexion
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import modelo.FactoriaNota
-import modelo.Nota
-import modelo.NotaDeTexto
+import com.example.micolornote.modelo.FactoriaNota
+import com.example.micolornote.modelo.Nota
+import com.example.micolornote.modelo.NotaDeTexto
 import java.lang.Exception
-import java.sql.Timestamp
-import java.util.*
-import android.content.Intent
 
 
 class AddNoteActivity : AppCompatActivity() {

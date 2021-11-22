@@ -1,6 +1,5 @@
-package modelo
+package com.example.micolornote.modelo
 
-import java.util.*
 import kotlin.collections.ArrayList
 
 class NotaDeTareas(id_notaTarea: String, t: String, f: String, h: String,tip: Int, lista: ArrayList<Tarea>) :

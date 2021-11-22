@@ -1,6 +1,6 @@
-package bd
+package com.example.micolornote.bd
 
-import Auxiliar.Constantes
+import com.example.micolornote.auxiliar.Constantes
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper

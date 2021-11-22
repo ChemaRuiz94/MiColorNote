@@ -1,7 +1,6 @@
 package com.example.micolornote
 
-import adapter.AdaptadorRecyclerV
-import adapter.MyAdapterRV
+import com.example.micolornote.adapter.AdaptadorRecyclerV
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,8 +9,8 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import bd.Conexion
-import modelo.Nota
+import com.example.micolornote.bd.Conexion
+import com.example.micolornote.modelo.Nota
 
 class MainActivity : AppCompatActivity() {
 

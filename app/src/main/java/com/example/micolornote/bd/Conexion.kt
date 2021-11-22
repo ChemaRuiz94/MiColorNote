@@ -1,11 +1,11 @@
-package bd
+package com.example.micolornote.bd
 
-import Auxiliar.Constantes
+import com.example.micolornote.auxiliar.Constantes
 import android.content.ContentValues
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import modelo.Nota
-import modelo.NotaDeTexto
+import com.example.micolornote.modelo.Nota
+import com.example.micolornote.modelo.NotaDeTexto
 
 object Conexion {
     var nombreBD = Constantes.nombreBD

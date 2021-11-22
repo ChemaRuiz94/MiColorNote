@@ -1,4 +1,4 @@
-package adapter
+package com.example.micolornote.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,12 +10,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import bd.Conexion
+import com.example.micolornote.bd.Conexion
 import com.example.micolornote.AddNoteActivity
 import com.example.micolornote.MainActivity
 import com.example.micolornote.R
-import modelo.Nota
-import modelo.NotaDeTexto
+import com.example.micolornote.modelo.Nota
+import com.example.micolornote.modelo.NotaDeTexto
 
 
 class AdaptadorRecyclerV(
