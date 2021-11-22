@@ -5,7 +5,9 @@ import android.content.ContentValues
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.micolornote.modelo.Nota
+import com.example.micolornote.modelo.NotaDeTareas
 import com.example.micolornote.modelo.NotaDeTexto
+import com.example.micolornote.modelo.Tarea
 
 object Conexion {
     var nombreBD = Constantes.nombreBD
@@ -99,6 +101,38 @@ object Conexion {
         } else {
             return cant
         }
+    }
+
+    fun addNota(contexto: AppCompatActivity, n: Nota) {
+        val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
+        val bd = admin.writableDatabase
+
+        //registro nota
+        var regNota = ContentValues()
+        regNota.put("${Constantes.ID_NOTA}", n.id_nota)
+        regNota.put("${Constantes.TITULO_NOTA}", n.titulo)
+        regNota.put("${Constantes.FECHA_NOTA}", n.fecha)
+        regNota.put("${Constantes.HORA_NOTA}", n.hora_nota)
+        regNota.put("${Constantes.TIPO_NOTA}", n.tipo)
+        bd.insert("${Constantes.TAB_NOTAS}", null, regNota)
+
+        bd.close()
+    }
+
+    fun addTarea(contexto: AppCompatActivity, id_nota: String, tarea: Tarea ) {
+        val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
+        val bd = admin.writableDatabase
+
+        //registro tarea
+        var regTarea = ContentValues()
+        regTarea.put("${Constantes.ID_TAREA}", tarea.id_Tarea)
+        regTarea.put("${Constantes.ID_TAREA_CRUCE}", id_nota)
+        regTarea.put("${Constantes.TEXTO_TAREA}", tarea.texto_tarea)
+        regTarea.put("${Constantes.TAREA_REALIZADA}", tarea.tarea_realizada)
+        regTarea.put("${Constantes.FOTO_TAREA}", tarea.foto_tarea)
+        bd.insert("${Constantes.TAB_TAREAS}", null, regTarea)
+
+        bd.close()
     }
 
     fun obtenerNota(contexto: AppCompatActivity, id: String): Nota? {

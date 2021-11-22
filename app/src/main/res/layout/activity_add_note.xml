@@ -50,7 +50,8 @@
         android:background="@color/my_brown_background"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/ed_txt_titulo_notaText"
