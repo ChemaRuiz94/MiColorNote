@@ -22,19 +22,30 @@ object FactoriaNota {
         val fecha = Constantes.simpleDateFormat.format(time).toString()
         val hora = Constantes.hourDateFormat.format(time).toString()
 
-        val nota: Nota = Nota(id, tit, fecha, hora,tipo)
+        val nota: Nota = Nota(id, tit, fecha, hora, tipo)
+        return nota
+    }
+
+    fun gen_Nota_with_Id(id_nota: String,tit: String, tipo: Int): Nota {
+
+        var id = id_nota
+        var time = Timestamp(System.currentTimeMillis())
+        val fecha = Constantes.simpleDateFormat.format(time).toString()
+        val hora = Constantes.hourDateFormat.format(time).toString()
+
+        val nota: Nota = Nota(id, tit, fecha, hora, tipo)
         return nota
     }
 
     fun gen_NotaText(not: Nota, conten: String): NotaDeTexto {
         var notaDeTexto: NotaDeTexto =
-            NotaDeTexto(not.id_nota, not.titulo, not.fecha, not.hora_nota,not.tipo, conten)
+            NotaDeTexto(not.id_nota, not.titulo, not.fecha, not.hora_nota, not.tipo, conten)
         return notaDeTexto
     }
 
-    fun gen_Tarea(id_nota: String,text: String){
+    fun gen_Tarea(id_nota: String, text: String): Tarea {
         var id = gen_Unique_ID()
-        var img = R.drawable.ejemplo
-        var tarea: Tarea = Tarea(id,id_nota,text,img)
+        var img = R.drawable.ejemplo.toString()
+        return Tarea(id, id_nota, text,0, img)
     }
 }
