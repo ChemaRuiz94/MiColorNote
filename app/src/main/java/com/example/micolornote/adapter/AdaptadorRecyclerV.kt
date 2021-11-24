@@ -99,8 +99,6 @@ class AdaptadorRecyclerV(
 
         } else {
             //si el tipo es 2 es nota de Tareas
-            // Toast.makeText(context, "MODIFICAR LISTA DE TAREAS", Toast.LENGTH_SHORT)
-            //                .show()
 
             var nota: Nota? = Conexion.obtenerNota(context, nota.id_nota.toString())
             var intentListNote: Intent = Intent(context, AddListaActivity::class.java)
