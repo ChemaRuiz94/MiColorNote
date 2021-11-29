@@ -121,13 +121,9 @@ class ModTareaActivity : AppCompatActivity() {
         try {
             var cant =  Conexion.modTarea(this, id_ant, tareaNueva)
             if (cant == 1)
-                Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.tarea_mod), Toast.LENGTH_SHORT).show()
             else
-                Toast.makeText(this, "No existe esa tarea", Toast.LENGTH_SHORT).show()
-
-            //val intent_new = Intent(this, AddListaActivity::class.java)
-            //intent_new.putExtra("newTarea", tareaNueva)
-            //startActivity(intent_new)
+                Toast.makeText(this, getString(R.string.tarea_mod_error), Toast.LENGTH_SHORT).show()
 
             finish()
         } catch (e: Exception) {

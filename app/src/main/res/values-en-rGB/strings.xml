@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MiColorNote</string>
+    <string name="tipo">Choose note tipe</string>
+    <string name="buscador_nota">search note by title...</string>
+    <string name="nota_texto">TEXT NOTE</string>
+    <string name="nota_tareas">TASK LIST</string>
+    <string name="titulo">"  TITLE..."</string>
+    <string name="titulo_nota_texto_obligatorio">Title the text note</string>
+    <string name="titulo_lista_tareas_obligatorio">Title the task  list</string>
+    <string name="titulo_tareas_obligatorio">Title the task</string>
+    <string name="texto_obligatoiro">Text note cannot be empty</string>
+    <string name="tareas_obligatoiro">Add at least one task to the list</string>
+    <string name="add_tarea">Add task</string>
+    <string name="texto_tarea">Task text...</string>
+    <string name="add">ADD</string>
+    <string name="modificar">MODIFY</string>
+    <string name="aceptar">ACCEPT</string>
+    <string name="cancelar">CANCEL</string>
+    <string name="eliminar">DELETE</string>
+    <string name="salir">EXIT</string>
+    <string name="foto">PHOTO</string>
+    <string name="mod_tarea">Modify Task</string>
+    <string name="modificar_nota">Do you want to modify this note?</string>
+    <string name="eliminar_nota">Do you want to delete this text note?</string>
+    <string name="eliminar_tarea">Do you want to delete this task?</string>
+    <string name="salir_sin_guardar">Do you want to exit without saving?</string>
+    <string name="perder_cambios">You will lose unsaved changes</string>
+    <string name="lista_guardada">List SAVED correctly</string>
+    <string name="lista_modificada">List MODIFIED correctly</string>
+    <string name="lista_eliminada">List DELETED correctly</string>
+    <string name="nota_guardada">Text note SAVED correctly</string>
+    <string name="nota_modificada">Text note MODIFIED correctly</string>
+    <string name="nota_eliminada">"Text note DELETED correctly  "</string>
+    <string name="tarea_mod">Task MODIFIED correctly</string>
+    <string name="tarea_mod_error">The task does not exist</string>
+    <string name="idioma">language</string>
+    <string name="add_opcion">Options</string>
+</resources>
