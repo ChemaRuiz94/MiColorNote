@@ -24,7 +24,6 @@
         android:layout_height="77dp"
         android:layout_marginTop="44dp"
         android:ems="10"
-        android:hint="Tarea..."
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,13 +31,14 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.252"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btn_add_foto_tarea"
         android:layout_width="121dp"
         android:layout_height="68dp"
-        android:text="Foto"
+        android:text="@string/foto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
@@ -50,7 +50,7 @@
         android:id="@+id/btn_add_tarea"
         android:layout_width="167dp"
         android:layout_height="66dp"
-        android:text="Modificar tarea"
+        android:text="@string/mod_tarea"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

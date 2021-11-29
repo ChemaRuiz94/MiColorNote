@@ -80,7 +80,7 @@ class AddTareaActivity : AppCompatActivity() {
         if (txt_titulo_tarea.text.toString() == "") {
             Toast.makeText(
                 applicationContext,
-                "Introduce un titulo para la tarea",
+                R.string.titulo_tareas_obligatorio,
                 Toast.LENGTH_SHORT
             ).show()
         } else {

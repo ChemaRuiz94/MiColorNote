@@ -51,7 +51,7 @@ class AdaptadorRecyclerV_Tareas(
         }
 
         holder.foto.setOnClickListener {
-            Toast.makeText(context, "FOTO", Toast.LENGTH_SHORT)
+            Toast.makeText(context, R.string.foto, Toast.LENGTH_SHORT)
                 .show()
         }
 
@@ -65,15 +65,13 @@ class AdaptadorRecyclerV_Tareas(
         }
         //ELIMINAR TAREA
         holder.itemView.setOnLongClickListener(View.OnLongClickListener {
-            AlertDialog.Builder(context).setTitle("¿Desea eliminar tarea?")
-                .setPositiveButton("Eliminar") { view, _ ->
+            AlertDialog.Builder(context).setTitle(R.string.eliminar_tarea)
+                .setPositiveButton(R.string.eliminar) { view, _ ->
                     //elimina tarea
                     tareas.remove(tarea)
                     notifyDataSetChanged()
-                    Toast.makeText(context, "Tarea eliminada", Toast.LENGTH_SHORT)
-                        .show()
                     view.dismiss()
-                }.setNegativeButton("Cancelar") { view, _ ->//cancela
+                }.setNegativeButton(R.string.cancelar) { view, _ ->//cancela
                     view.dismiss()
                 }.create().show()
             false
