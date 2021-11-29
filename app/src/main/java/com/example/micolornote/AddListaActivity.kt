@@ -262,7 +262,7 @@ class AddListaActivity : AppCompatActivity() {
         tareas.add(tarea)
         miAdapterTarea = AdaptadorRecyclerV_Tareas(this, tareas)
         miRecyclerView.adapter = miAdapterTarea
-        //Conexion.addTarea(this, id_not_lista, tarea)
+        Conexion.addTarea(this, id_not_lista, tarea)
     }
 
 
@@ -279,6 +279,7 @@ class AddListaActivity : AppCompatActivity() {
     }
 
 
+    /*
     override fun onBackPressed() {
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.salir_sin_guardar))
@@ -298,5 +299,7 @@ class AddListaActivity : AppCompatActivity() {
             .create()
             .show()
     }
+
+     */
 
 }
