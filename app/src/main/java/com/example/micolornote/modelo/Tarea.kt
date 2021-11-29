@@ -1,6 +1,8 @@
 package com.example.micolornote.modelo
 
-class Tarea(id_tarea: String, id_nota: String, t: String, realiz: Int, img: String) {
+import java.io.Serializable
+
+class Tarea(id_tarea: String, id_nota: String, t: String, realiz: Int, img: String) : Serializable {
 
     var id_Tarea = id_tarea
     var id_Nota = id_nota

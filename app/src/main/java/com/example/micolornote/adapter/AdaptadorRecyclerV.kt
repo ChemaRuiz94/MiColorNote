@@ -48,8 +48,8 @@ class AdaptadorRecyclerV(
                 .setPositiveButton("Eliminar") { view, _ ->
 
                     //elimina nota
-                    Conexion.delNotaText(context as AppCompatActivity, nota)
-                    //checkEliminar(nota,context)
+                    //Conexion.delNotaText(context as AppCompatActivity, nota)
+                    checkEliminar(nota,context)
                     //refresca la MainActivity
                     var myIntent = Intent(context, MainActivity::class.java)
                     context.startActivity(myIntent)
@@ -80,8 +80,13 @@ class AdaptadorRecyclerV(
         if (nota.tipo == 1) {
             //si el tipo es 1 es nota de Texto
             Conexion.delNotaText(context as AppCompatActivity, nota)
+            Toast.makeText(context, "Nota de texto Eliminada", Toast.LENGTH_SHORT)
+                .show()
         } else {
-            Toast.makeText(context, "ELIMINAR LISTA DE TAREAS", Toast.LENGTH_SHORT)
+            //si es del tipo 2 es lista
+            Conexion.delTareasIdNota(context as AppCompatActivity, nota)
+            Conexion.delNota(context as AppCompatActivity, nota)
+            Toast.makeText(context, "Lista de Tareas Eliminada", Toast.LENGTH_SHORT)
                 .show()
         }
     }

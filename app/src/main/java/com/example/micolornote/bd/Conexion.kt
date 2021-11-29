@@ -135,10 +135,21 @@ object Conexion {
         Conexion.addTareas(contexto, n.id_nota.toString(), tareas)
 
         bd.close()
-
         return cant
 
     }
+
+    fun delNota(contexto: AppCompatActivity, n: Nota): Int {
+        val admin = AdminSQLiteConexion(contexto, Constantes.nombreBD, null, 1)
+        val bd = admin.writableDatabase
+        val id = n.id_nota
+        var cant = bd.delete("${Constantes.TAB_NOTAS}", "${Constantes.ID_NOTA}='${id}'", null)
+
+        bd.close()
+        return cant
+    }
+
+
 
     fun addNota(contexto: AppCompatActivity, n: Nota) {
         val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
@@ -188,6 +199,36 @@ object Conexion {
         bd.insert("${Constantes.TAB_TAREAS}", null, regTarea)
 
         bd.close()
+    }
+
+    fun modTarea(contexto: AppCompatActivity, id_tarea: String, tarea: Tarea): Int {
+        val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
+        val bd = admin.writableDatabase
+        var regTarea = ContentValues()
+        //regTarea.put("${Constantes.ID_TAREA}", id_tarea)
+        regTarea.put("${Constantes.ID_TAREA_CRUCE}", tarea.id_Nota)
+        regTarea.put("${Constantes.TEXTO_TAREA}", tarea.texto_tarea)
+        regTarea.put("${Constantes.TAREA_REALIZADA}", tarea.tarea_realizada)
+        //regTarea.put("${Constantes.FOTO_TAREA}", tarea.foto_tarea)
+        val cant = bd.update(
+            "${Constantes.TAB_TAREAS}",
+            regTarea,
+            "${Constantes.ID_TAREA}= '${id_tarea}'",
+            null
+        )
+        bd.close()
+        return cant
+    }
+
+    fun delTarea(contexto: AppCompatActivity, tarea: Tarea): Int {
+        val admin = AdminSQLiteConexion(contexto, Constantes.nombreBD, null, 1)
+        val bd = admin.writableDatabase
+        val id = tarea.id_Nota
+        var cant =
+            bd.delete("${Constantes.TAB_TAREAS}", "${Constantes.ID_TAREA_CRUCE}='${id}'", null)
+
+        bd.close()
+        return cant
     }
 
     fun obtenerNota(contexto: AppCompatActivity, id: String): Nota? {

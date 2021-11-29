@@ -22,4 +22,14 @@
         android:gravity="center"
         android:text="TextView"
         android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/img_tarea_realizada"
+        android:layout_width="7dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_weight="1"
+        tools:srcCompat="@drawable/ic_baseline_undone_24"
+        tools:visibility="visible" />
 </LinearLayout>
