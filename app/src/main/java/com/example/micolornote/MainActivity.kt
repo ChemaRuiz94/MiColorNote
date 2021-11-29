@@ -31,8 +31,9 @@ class MainActivity : AppCompatActivity() {
         miRecyclerView.adapter = miAdapter
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
+
         Log.d("CICLO", "OnStart")
         notas = Conexion.obtenerNotas(this)
         miAdapter = AdaptadorRecyclerV(this, notas)
@@ -40,36 +41,19 @@ class MainActivity : AppCompatActivity() {
         miAdapter.notifyDataSetChanged()
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.d("CICLO", "OnResume")
-    }
 
-    override fun onPause() {
-        super.onPause()
-        Log.d("CICLO", "OnPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("CICLO", "OnStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("CICLO", "OnDestroy")
-    }
 
     fun btn_add_Note(view: View){
 
-        AlertDialog.Builder(this).setTitle("¿Que tipo de nota quieres?").setNegativeButton("Nota de texto"){ view,_ ->
+        AlertDialog.Builder(this).setTitle(getString(R.string.tipo))
+            .setNegativeButton(getString(R.string.nota_texto)){ view,_ ->
 
             //NOTAS DE TEXTO
             val intent = Intent(this, AddNoteActivity::class.java)
             startActivity(intent)
             view.dismiss()}
 
-            .setPositiveButton("Lista de tareas"){ view,_ ->
+            .setPositiveButton(getString(R.string.nota_tareas)){ view,_ ->
             //LISTA DE TAREAS
                 val intent = Intent(this, AddListaActivity::class.java)
                 startActivity(intent)

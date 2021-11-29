@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.micolornote.bd.Conexion
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.micolornote.modelo.FactoriaNota
@@ -46,9 +47,6 @@ class AddNoteActivity : AppCompatActivity() {
             btn_save.setOnClickListener { view -> checkModificar() }
         }
 
-
-
-
     }
 
     fun check_saveNote() {
@@ -57,17 +55,18 @@ class AddNoteActivity : AppCompatActivity() {
 
             Toast.makeText(
                 applicationContext,
-                "La nota no puede estar en blanco",
+                getString(R.string.texto_obligatoiro),
                 Toast.LENGTH_SHORT
             ).show()
 
         } else if (texto_titulo.text.toString() == "") {
-            Toast.makeText(applicationContext, "Ponle un titulo a la nota", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, getString(R.string.titulo_nota_texto_obligatorio), Toast.LENGTH_SHORT)
                 .show()
         } else {
-            Toast.makeText(applicationContext, "Nota guardada correctamente", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, getString(R.string.nota_guardada), Toast.LENGTH_SHORT)
                 .show()
             saveNota(crearNotaTexto())
+            finish()
         }
     }
 
@@ -101,17 +100,18 @@ class AddNoteActivity : AppCompatActivity() {
 
             Toast.makeText(
                 applicationContext,
-                "La nota no puede estar en blanco",
+                getString(R.string.texto_obligatoiro),
                 Toast.LENGTH_SHORT
             ).show()
 
         } else if (texto_titulo.text.toString() == "") {
-            Toast.makeText(applicationContext, "Ponle un titulo a la nota", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, getString(R.string.titulo_nota_texto_obligatorio), Toast.LENGTH_SHORT)
                 .show()
         } else {
-            Toast.makeText(applicationContext, "Nota de texto modificada", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, getString(R.string.nota_modificada), Toast.LENGTH_SHORT)
                 .show()
             modificar(crearNotaTexto())
+            finish()
         }
     }
 
@@ -126,5 +126,21 @@ class AddNoteActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.salir_sin_guardar))
+            .setMessage(getString(R.string.perder_cambios))
+            .setPositiveButton(getString(R.string.salir)) { view, _ ->
+                super.onBackPressed()
+                view.dismiss()
+            }
+            .setNegativeButton(getString(R.string.cancelar)) { view, _ ->
+                //super.onBackPressed()
+                view.dismiss()
+            }
+            .setCancelable(true)
+            .create()
+            .show()
+    }
 
 }

@@ -223,9 +223,9 @@ object Conexion {
     fun delTarea(contexto: AppCompatActivity, tarea: Tarea): Int {
         val admin = AdminSQLiteConexion(contexto, Constantes.nombreBD, null, 1)
         val bd = admin.writableDatabase
-        val id = tarea.id_Nota
+        val id = tarea.id_Tarea
         var cant =
-            bd.delete("${Constantes.TAB_TAREAS}", "${Constantes.ID_TAREA_CRUCE}='${id}'", null)
+            bd.delete("${Constantes.TAB_TAREAS}", "${Constantes.ID_TAREA}='${id}'", null)
 
         bd.close()
         return cant
@@ -259,7 +259,7 @@ object Conexion {
         val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
         val bd = admin.writableDatabase
         val fila = bd.rawQuery(
-            "select ${Constantes.ID_TAREA},${Constantes.ID_TAREA_CRUCE},${Constantes.TEXTO_TAREA}, ${Constantes.TAREA_REALIZADA}, ${Constantes.FOTO_TAREA} from ${Constantes.TAB_TAREAS} where ${Constantes.ID_TAREA_CRUCE}='${id}'",
+            "select ${Constantes.ID_TAREA}, ${Constantes.ID_TAREA_CRUCE}, ${Constantes.TEXTO_TAREA}, ${Constantes.TAREA_REALIZADA}, ${Constantes.FOTO_TAREA} from ${Constantes.TAB_TAREAS} where ${Constantes.ID_TAREA_CRUCE}='${id}'",
             null
         )
         while (fila.moveToNext()) {

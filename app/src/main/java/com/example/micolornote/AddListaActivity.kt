@@ -32,7 +32,7 @@ class AddListaActivity : AppCompatActivity() {
     private lateinit var miAdapterTarea: AdaptadorRecyclerV_Tareas
     private var tareas: ArrayList<Tarea> = ArrayList<Tarea>()
     private var tareasAntiguas: ArrayList<Tarea> = ArrayList<Tarea>()
-    private var notaDeTareasAntigua: NotaDeTareas? = null
+
     private var id_not_lista: String = ""
     private var foto_tarea: String = ""
     private var modificando: Boolean = false
@@ -46,7 +46,6 @@ class AddListaActivity : AppCompatActivity() {
     private lateinit var itemView: View
     private lateinit var txt_titulo_lista: EditText
     private lateinit var txt_titulo_tarea: EditText
-    private lateinit var img_AddTarea: ImageView
 
     private val cameraRequest = 1888
 
@@ -58,6 +57,8 @@ class AddListaActivity : AppCompatActivity() {
         val i = intent
         notaListaAntigua = i.getSerializableExtra("nota") as Nota?
         tarea = i.getSerializableExtra("newTarea") as Tarea?
+
+        tareas = ArrayList<Tarea>(1)
 
         btn_add_tarea = findViewById(R.id.floating_btn_add_tarea)
         btn_save_lista = findViewById(R.id.floating_btn_save_lista)
@@ -100,7 +101,6 @@ class AddListaActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.d("CICLO", "OnStart")
-        //tareas = Conexion.obtenerTareasIdNota(this,id_not_lista)
 
         cargarTareas()
         miAdapterTarea = AdaptadorRecyclerV_Tareas(this, tareas)
@@ -126,17 +126,17 @@ class AddListaActivity : AppCompatActivity() {
 
         if (!modificando) {
             if (txt_titulo_lista.text.toString() == "") {
-                Toast.makeText(applicationContext, "Ponle un titulo a la lista", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, R.string.titulo_lista_tareas_obligatorio, Toast.LENGTH_SHORT)
                     .show()
             } else if (tareas.size < 1) {
-                Toast.makeText(applicationContext, "Añade al menos una tarea", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, R.string.tareas_obligatoiro, Toast.LENGTH_SHORT)
                     .show()
             } else {
 
                 saveLista(crearNotaListaDeTareas())
                 Toast.makeText(
                     applicationContext,
-                    "Lista GUARDADA correctamente",
+                    R.string.lista_guardada,
                     Toast.LENGTH_SHORT
                 )
                     .show()
@@ -148,14 +148,14 @@ class AddListaActivity : AppCompatActivity() {
 
     fun checkModificar() {
         if (txt_titulo_lista.text.toString() == "") {
-            Toast.makeText(applicationContext, "Ponle un titulo a la lista", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, R.string.titulo_lista_tareas_obligatorio, Toast.LENGTH_SHORT)
                 .show()
         } else if (tareas.size < 1) {
-            Toast.makeText(applicationContext, "Añade al menos una tarea", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, R.string.tareas_obligatoiro, Toast.LENGTH_SHORT)
                 .show()
         } else {
             modificar()
-            Toast.makeText(applicationContext, "Lista MODIFICADA correctamente", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, R.string.lista_modificada, Toast.LENGTH_SHORT)
                 .show()
             finish()
         }
@@ -216,7 +216,7 @@ class AddListaActivity : AppCompatActivity() {
                 //AÑADIR TAREA
                 txt_titulo_tarea = itemView.findViewById(R.id.ed_txt_texto_tarea)
                 if (txt_titulo_tarea.text.trim().toString() == "") {
-                    Toast.makeText(applicationContext, "Ponle un titulo", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, getString(R.string.titulo_tareas_obligatorio), Toast.LENGTH_LONG).show()
 
                 } else {
 
@@ -226,11 +226,10 @@ class AddListaActivity : AppCompatActivity() {
                     )
 
                     addTareaLista(tarea)
-                    Toast.makeText(applicationContext, "Tarea añadida", Toast.LENGTH_LONG).show()
                 }
                 view.dismiss()
             }
-            .setNegativeButton("Cancelar") { view, _ ->
+            .setNegativeButton(R.string.cancelar) { view, _ ->
                 //Toast.makeText(applicationContext,"Mal",Toast.LENGTH_LONG).show()
                 view.dismiss()
             }.create().show()
@@ -260,7 +259,7 @@ class AddListaActivity : AppCompatActivity() {
 
     fun addTareaLista(tarea: Tarea) {
 
-        this.tareas.add(tarea)
+        tareas.add(tarea)
         miAdapterTarea = AdaptadorRecyclerV_Tareas(this, tareas)
         miRecyclerView.adapter = miAdapterTarea
         //Conexion.addTarea(this, id_not_lista, tarea)
@@ -268,30 +267,30 @@ class AddListaActivity : AppCompatActivity() {
 
 
     fun borrarTareasNoModificadas() {
-        val lista_a_borrar = ArrayList<Tarea>()
+        var lista_a_borrar = ArrayList<Tarea>(1)
         for (t in tareas) {
             if (!tareasAntiguas.contains(t)) {
                 lista_a_borrar.add(t)
             }
         }
-        for (tarea in lista_a_borrar) {
-            Conexion.delTarea(this, tarea)
+        for (ta in lista_a_borrar) {
+            Conexion.delTarea(this, ta)
         }
     }
 
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
-            .setTitle("Desea salir sin guradar")
-            .setMessage("Perderá los cambios no guardados")
-            .setPositiveButton("Salir") { view, _ ->
-                if (modificando) {
+            .setTitle(getString(R.string.salir_sin_guardar))
+            .setMessage(getString(R.string.perder_cambios))
+            .setPositiveButton(getString(R.string.salir)) { view, _ ->
+                if (!modificando) {
                     borrarTareasNoModificadas()
                 }
                 super.onBackPressed()
                 view.dismiss()
             }
-            .setNegativeButton("Cancelar") { view, _ ->
+            .setNegativeButton(getString(R.string.cancelar)) { view, _ ->
                 //super.onBackPressed()
                 view.dismiss()
             }

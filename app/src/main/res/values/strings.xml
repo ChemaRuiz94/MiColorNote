@@ -1,5 +1,36 @@
 <resources>
     <string name="app_name">MiColorNote</string>
+
+    <string name="tipo">¿Qué tipo de nota quieres?</string>
+    <string name="buscador_nota">Buscar nota por titulo...</string>
+    <string name="nota_texto">NOTA DE TEXTO</string>
+    <string name="nota_tareas">LISTA DE TAREAS</string>
+    <string name="titulo">Titulo...</string>
+    <string name="titulo_nota_texto_obligatorio">Ponle un titulo a la nota</string>
+    <string name="titulo_lista_tareas_obligatorio">Ponle un titulo a la lista</string>
+    <string name="titulo_tareas_obligatorio">Ponle un titulo a la tarea</string>
+    <string name="texto_obligatoiro">La nota no puede estar en blanco</string>
+    <string name="tareas_obligatoiro">Añade al menos una tarea a la lista</string>
     <string name="add_tarea">Añadir tarea</string>
+    <string name="texto_tarea">Texto tarea...</string>
+    <string name="add">AÑADIR</string>
+    <string name="modificar">MODIFICAR</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="eliminar">ELIMINAR</string>
+    <string name="salir">SALIR</string>
+    <string name="foto">FOTO</string>
+    <string name="mod_tarea">Modificar Tarea</string>
+    <string name="modificar_nota">¿Desea modificar esta nota?</string>
+    <string name="eliminar_nota">¿Desea eliminar esta nota?</string>
+    <string name="eliminar_tarea">¿Desea eliminar esta tarea?</string>
+    <string name="salir_sin_guardar">¿Desea salir sin guardar?</string>
+    <string name="perder_cambios">Perderá los cambios no guardados</string>
+    <string name="lista_guardada">Lista GUARDADA correcctamente</string>
+    <string name="lista_modificada">Lista MODIFICADA correcctamente</string>
+    <string name="lista_eliminada">Lista ELIMINADA correcctamente</string>
+    <string name="nota_guardada">Nota de texto GUARDADA correcctamente</string>
+    <string name="nota_modificada">Nota de texto MODIFICADA correcctamente</string>
+    <string name="nota_eliminada">Nota de texto ELIMINADA correcctamente</string>
     <string name="add_opcion">Opciones</string>
 </resources>
