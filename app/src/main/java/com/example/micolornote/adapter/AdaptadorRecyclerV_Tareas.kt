@@ -35,10 +35,14 @@ class AdaptadorRecyclerV_Tareas(
         holder.texto_tarea.text = tarea.texto_tarea
 
         //
-        val u = Utiles()
-        val foto: Bitmap? = u.base64ToBitmap(tarea.foto_tarea)
-        holder.foto.setImageBitmap(foto)
-        //holder.foto.setImageResource(foto.toString().toInt())
+        if(tarea.foto_tarea != null){
+            val u = Utiles()
+            val foto: Bitmap? = tarea.foto_tarea?.let { u.base64ToBitmap(it) }
+            holder.foto.setImageBitmap(foto)
+        }else{
+            holder.foto.setImageResource(R.drawable.ejemplo)
+        }
+
 
         if (tarea.tarea_realizada == 1) {
             holder.img_realizado.setImageResource(R.drawable.ic_baseline_done_24)

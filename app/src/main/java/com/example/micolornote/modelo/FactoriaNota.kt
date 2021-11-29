@@ -51,7 +51,7 @@ object FactoriaNota {
 
     fun gen_Tarea(id_nota: String, text: String): Tarea {
         var id = gen_Unique_ID()
-        var img = R.drawable.ejemplo.toString()
+        var img = null
         return Tarea(id, id_nota, text, 0, img)
     }
 

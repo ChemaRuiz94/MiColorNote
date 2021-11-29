@@ -77,7 +77,14 @@ class ModTareaActivity : AppCompatActivity() {
     fun cargar_tarea() {
         if (tareaAntigua != null) {
             txt_titulo_tarea.setText(tareaAntigua?.texto_tarea.toString())
-            imagenSacada.setImageResource(tareaAntigua?.foto_tarea.toString().toInt())
+            if(tareaAntigua?.foto_tarea != null){
+                //imagenSacada.setImageResource(tareaAntigua?.foto_tarea.toString().toInt())
+                val u = Utiles()
+                val foto: Bitmap? = tareaAntigua?.foto_tarea?.let { u.base64ToBitmap(it) }
+                    imagenSacada.setImageBitmap(foto)
+            }else{
+                imagenSacada.setImageResource(R.drawable.ejemplo)
+            }
         }
     }
 
