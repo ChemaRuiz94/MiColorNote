@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -16,13 +17,16 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
+import com.example.micolornote.auxiliar.Utiles
 import com.example.micolornote.bd.Conexion
 import com.example.micolornote.modelo.FactoriaNota
 import com.example.micolornote.modelo.Nota
 import com.example.micolornote.modelo.Tarea
+import java.io.ByteArrayOutputStream
 import java.lang.Exception
 
-class AddTareaActivity : AppCompatActivity() {
+class ModTareaActivity : AppCompatActivity() {
     private val cameraRequest = 1888
     lateinit var imagenSacada: ImageView
     lateinit var txt_titulo_tarea: EditText
@@ -31,6 +35,7 @@ class AddTareaActivity : AppCompatActivity() {
     private var tareaAntigua: Tarea? = null
     private var id_nota_lista: String? = null
     private var ventana: String = ""
+    private var img : Base64? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,8 +99,9 @@ class AddTareaActivity : AppCompatActivity() {
     fun modificar() {
 
         val id_ant = tareaAntigua?.id_Tarea.toString()
-        val imagen = imagenSacada.imageTintMode
-        //val imagen  = (imagenSacada.getDrawable()) as Bitmap
+        val u = Utiles()
+        val imagen = u.bitmapToBase64(imagenSacada.drawable.toBitmap())
+
 
         val tareaNueva = FactoriaNota._gen_tarea_with_Id(
             id_ant,
@@ -122,6 +128,7 @@ class AddTareaActivity : AppCompatActivity() {
         }
 
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

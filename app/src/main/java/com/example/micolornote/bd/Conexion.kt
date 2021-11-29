@@ -209,7 +209,7 @@ object Conexion {
         regTarea.put("${Constantes.ID_TAREA_CRUCE}", tarea.id_Nota)
         regTarea.put("${Constantes.TEXTO_TAREA}", tarea.texto_tarea)
         regTarea.put("${Constantes.TAREA_REALIZADA}", tarea.tarea_realizada)
-        //regTarea.put("${Constantes.FOTO_TAREA}", tarea.foto_tarea)
+        regTarea.put("${Constantes.FOTO_TAREA}", tarea.foto_tarea)
         val cant = bd.update(
             "${Constantes.TAB_TAREAS}",
             regTarea,

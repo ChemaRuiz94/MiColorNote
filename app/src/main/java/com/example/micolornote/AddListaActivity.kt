@@ -1,27 +1,17 @@
 package com.example.micolornote
 
-import android.Manifest
 import android.app.Activity
-import android.app.Instrumentation
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.micolornote.adapter.AdaptadorRecyclerV
 import com.example.micolornote.adapter.AdaptadorRecyclerV_Tareas
-import com.example.micolornote.auxiliar.MyDialogTarea
 import com.example.micolornote.bd.Conexion
 import com.example.micolornote.modelo.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -178,7 +168,7 @@ class AddListaActivity : AppCompatActivity() {
 
     fun add_tarea_newActivity(context: AppCompatActivity) {
 
-        var intentAddTarea: Intent = Intent(context, AddTareaActivity::class.java)
+        var intentAddTarea: Intent = Intent(context, ModTareaActivity::class.java)
         intentAddTarea.putExtra("id_nota", id_not_lista)
         intentAddTarea.putExtra("ventana", "Lista")
 
