@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MiColorNote</string>
+    <string name="add_tarea">Añadir tarea</string>
+    <string name="add_opcion">Opciones</string>
 </resources>
