@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 object Constantes {
 
     //nombre de la base de datos
-    const val nombreBD : String = "administracion3.db3"
+    const val nombreBD : String = "administracion6.db3"
 
     //constantes de la tabla notas
     const val TAB_NOTAS : String = "tabla_notas"

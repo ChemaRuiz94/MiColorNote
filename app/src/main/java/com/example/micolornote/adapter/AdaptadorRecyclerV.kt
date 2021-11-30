@@ -47,7 +47,8 @@ class AdaptadorRecyclerV(
         holder.titulo.text = nota.titulo
         holder.fecha.text = nota.fecha
         holder.hora.text = nota.hora_nota
-        val color: Int = (R.color.my_yellow_background)
+        //val color: Int = (R.color.my_yellow_background)
+
 
         if (nota.tipo != 1){
             holder.img.setImageResource(R.drawable.ic_baseline_format_list_numbered_rtl_24)
@@ -84,7 +85,13 @@ class AdaptadorRecyclerV(
                     checkModificar(nota, context)
 
                     view.dismiss()
-                }.setNegativeButton(R.string.cancelar) { view, _ ->
+                }.setNegativeButton("COMPARTIR POR SMS") { view, _ ->
+
+                    // Modificar nota
+                    checkComparitr(nota, context)
+
+                    view.dismiss()
+                }.setNeutralButton(R.string.cancelar) { view, _ ->
                     //cancela
                     view.dismiss()
                 }.create().show()
@@ -128,18 +135,22 @@ class AdaptadorRecyclerV(
         }
     }
 
+    fun checkComparitr(nota: Nota, context: AppCompatActivity) {
+        if (nota.tipo == 1) {
+            Toast.makeText(context," compartir pos SMS", Toast.LENGTH_SHORT)
+                .show()
+
+        } else {
+            Toast.makeText(context,"La lista de tareas no se puede compartir pos SMS", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
     fun getNotaTexto(nota: Nota, context: AppCompatActivity): NotaDeTexto? {
         var nota: Nota? = Conexion.obtenerNota(context, nota.id_nota.toString())
         var notaDeTexto: NotaDeTexto? = Conexion.obtenerNotaTexto(context, nota?.id_nota.toString())
 
         return notaDeTexto
-    }
-
-    fun getNotaLista(nota: Nota, context: AppCompatActivity): NotaDeTareas? {
-        var nota: Nota? = Conexion.obtenerNota(context, nota.id_nota.toString())
-        var notaDeTareas: NotaDeTareas? =
-            Conexion.obtenerNotaListaTareas(context, nota?.id_nota.toString())
-        return notaDeTareas
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

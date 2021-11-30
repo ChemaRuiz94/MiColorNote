@@ -8,11 +8,9 @@
     <string name="titulo">Titulo...</string>
     <string name="titulo_nota_texto_obligatorio">Ponle un titulo a la nota</string>
     <string name="titulo_lista_tareas_obligatorio">Ponle un titulo a la lista</string>
-    <string name="titulo_tareas_obligatorio">Ponle un titulo a la tarea</string>
     <string name="texto_obligatoiro">La nota no puede estar en blanco</string>
     <string name="tareas_obligatoiro">Añade al menos una tarea a la lista</string>
     <string name="add_tarea">Añadir tarea</string>
-    <string name="texto_tarea">Texto tarea...</string>
     <string name="add">AÑADIR</string>
     <string name="modificar">MODIFICAR</string>
     <string name="aceptar">ACEPTAR</string>
@@ -32,5 +30,15 @@
     <string name="nota_guardada">Nota de texto GUARDADA correcctamente</string>
     <string name="nota_modificada">Nota de texto MODIFICADA correcctamente</string>
     <string name="nota_eliminada">Nota de texto ELIMINADA correcctamente</string>
+    <string name="tarea_mod">Tarea MODIFICADA correcctamente</string>
+    <string name="tarea_mod_error">"No existe esa tarea"</string>
+    <string name="idioma">"Idioma"</string>
     <string name="add_opcion">Opciones</string>
+    <string name="titulo_tareas_obligatorio">Ponle un titulo a la tarea</string>
+    <string name="titulo_buscar_obligatorio">Introduce un titulo para buscar</string>
+    <string name="spanish">ESPAÑOL</string>
+    <string name="englsih">INGLÉS</string>
+    <string name="frances">FRANCÉS</string>
+    <string name="salir_app">¿Salir de la aplicacion?</string>
+    <string name="texto_tarea">Texto tarea...</string>
 </resources>

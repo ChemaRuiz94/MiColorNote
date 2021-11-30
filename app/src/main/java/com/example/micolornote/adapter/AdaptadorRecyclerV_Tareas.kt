@@ -1,29 +1,21 @@
 package com.example.micolornote.adapter
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.MediaStore
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.example.micolornote.AddListaActivity
-import com.example.micolornote.AddTareaActivity
-import com.example.micolornote.MainActivity
+import com.example.micolornote.ModTareaActivity
 import com.example.micolornote.R
-import com.example.micolornote.bd.Conexion
-import com.example.micolornote.modelo.FactoriaNota
-import com.example.micolornote.modelo.Nota
+import com.example.micolornote.auxiliar.Utiles
 import com.example.micolornote.modelo.Tarea
 
 class AdaptadorRecyclerV_Tareas(
@@ -40,9 +32,17 @@ class AdaptadorRecyclerV_Tareas(
 
     override fun onBindViewHolder(holder: ViewHolderTareas, position: Int) {
         val tarea = tareas[position]
-        val foto = tarea.foto_tarea.toString().toInt()
         holder.texto_tarea.text = tarea.texto_tarea
-        holder.foto.setBackgroundResource(foto)
+
+        //
+        if(tarea.foto_tarea != null){
+            val u = Utiles()
+            val foto: Bitmap? = tarea.foto_tarea?.let { u.base64ToBitmap(it) }
+            holder.foto.setImageBitmap(foto)
+        }else{
+            holder.foto.setImageResource(R.drawable.ejemplo)
+        }
+
 
         if (tarea.tarea_realizada == 1) {
             holder.img_realizado.setImageResource(R.drawable.ic_baseline_done_24)
@@ -58,7 +58,7 @@ class AdaptadorRecyclerV_Tareas(
         //MODIFICAR TAREA
         holder.itemView.setOnClickListener {
 
-            var intent_tarea_mod = Intent (context, AddTareaActivity::class.java)
+            var intent_tarea_mod = Intent (context, ModTareaActivity::class.java)
             intent_tarea_mod.putExtra("tarea_mod",tarea)
             ContextCompat.startActivity(context,intent_tarea_mod, Bundle())
 

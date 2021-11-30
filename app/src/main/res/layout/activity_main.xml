@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="@color/my_green_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:onClick="btn_add_Note"
-            app:srcCompat="@drawable/ic_note_add"
+            app:srcCompat="@drawable/ic_baseline_note_add_yellow_24"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
         <ImageButton
@@ -26,6 +27,7 @@
             android:layout_width="198dp"
             android:layout_height="48dp"
             android:layout_weight="1"
+            android:onClick="btn_check_lenguaje"
             app:srcCompat="@android:drawable/ic_menu_help"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
     </LinearLayout>
@@ -33,20 +35,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="49dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
+            android:id="@+id/ed_txt_buscar_nota"
+            style="@style/ModTareaText"
+            android:layout_width="328dp"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint= "@string/buscador_nota"
+            android:hint="@string/buscador_nota"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
+
+        <ImageButton
+            android:id="@+id/img_btn_buscar_nota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:onClick="btn_check_buscar"
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVista"
         android:layout_width="match_parent"
-        android:layout_height="640dp" />
+        android:layout_height="640dp"/>
 </LinearLayout>
