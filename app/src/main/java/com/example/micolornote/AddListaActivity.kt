@@ -207,7 +207,6 @@ class AddListaActivity : AppCompatActivity() {
                 txt_titulo_tarea = itemView.findViewById(R.id.ed_txt_texto_tarea)
                 if (txt_titulo_tarea.text.trim().toString() == "") {
                     Toast.makeText(applicationContext, getString(R.string.titulo_tareas_obligatorio), Toast.LENGTH_LONG).show()
-
                 } else {
 
                     val tarea: Tarea = FactoriaNota.gen_Tarea(

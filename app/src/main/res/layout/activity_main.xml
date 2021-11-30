@@ -34,17 +34,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="49dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/ed_txt_buscar_nota"
             style="@style/ModTareaText"
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
+            android:layout_width="328dp"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint= "@string/buscador_nota"
+            android:hint="@string/buscador_nota"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
+
+        <ImageButton
+            android:id="@+id/img_btn_buscar_nota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:onClick="btn_check_buscar"
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
