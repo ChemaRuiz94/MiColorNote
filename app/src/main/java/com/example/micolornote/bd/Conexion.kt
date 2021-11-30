@@ -77,10 +77,16 @@ object Conexion {
     }
 
     fun obtenerNotasPorNombre(contexto: AppCompatActivity, nombre: String): ArrayList<Nota> {
-        var notas: ArrayList<Nota> = ArrayList(1)
+        var notas: ArrayList<Nota> = ArrayList(0)
 
         val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
         val bd = admin.writableDatabase
+        /* DEBERIA FUNCIONAR ESTA BUSQUEDA
+        val fila = bd.rawQuery(
+            "select ${Constantes.ID_NOTA},${Constantes.TITULO_NOTA},${Constantes.FECHA_NOTA},${Constantes.HORA_NOTA},${Constantes.TIPO_NOTA} from ${Constantes.TAB_NOTAS} where ${Constantes.TITULO_NOTA}='%${nombre}%'",
+            null
+        )
+         */
         val fila = bd.rawQuery(
             "select ${Constantes.ID_NOTA},${Constantes.TITULO_NOTA},${Constantes.FECHA_NOTA},${Constantes.HORA_NOTA},${Constantes.TIPO_NOTA} from ${Constantes.TAB_NOTAS} where ${Constantes.TITULO_NOTA}='${nombre}'",
             null

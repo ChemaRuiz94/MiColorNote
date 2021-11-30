@@ -55,16 +55,4 @@ object FactoriaNota {
         return Tarea(id, id_nota, text, 0, img)
     }
 
-    fun gen_TareaWithFoto(id_nota: String, text: String, img: String): Tarea {
-        var id = gen_Unique_ID()
-        //var img = R.drawable.ejemplo.toString()
-        return Tarea(id, id_nota, text, 0, img)
-    }
-
-    fun mod_Tarea(tarea: Tarea?, img: String, text: String): Tarea? {
-        val id_nota = tarea?.id_Nota
-        val id_tarea = tarea?.id_Tarea
-        val realiz = tarea?.tarea_realizada
-        return Tarea(id_nota!!, id_tarea!!, text, realiz!!, img)
-    }
 }

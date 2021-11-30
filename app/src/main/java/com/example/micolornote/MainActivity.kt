@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
             ).show()
             refrescarRV()
         } else {
-            var listaNotas = Conexion.obtenerNotasPorNombre(this, txt_buscar.text.toString().trim())
+            var listaNotas = Conexion.obtenerNotasPorNombre(this, txt_buscar.text.toString())
             miAdapter = AdaptadorRecyclerV(this, listaNotas)
             miRecyclerView.adapter = miAdapter
             miAdapter.notifyDataSetChanged()

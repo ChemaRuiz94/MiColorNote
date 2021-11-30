@@ -61,7 +61,7 @@ class AddListaActivity : AppCompatActivity() {
         miAdapterTarea = AdaptadorRecyclerV_Tareas(this, tareas)
         miRecyclerView.adapter = miAdapterTarea
 
-
+        //MODIFICANDO?
         if (notaListaAntigua != null) {
             completarNota()
             modificando = true
@@ -166,31 +166,6 @@ class AddListaActivity : AppCompatActivity() {
     }
 
 
-    fun add_tarea_newActivity(context: AppCompatActivity) {
-
-        var intentAddTarea: Intent = Intent(context, ModTareaActivity::class.java)
-        intentAddTarea.putExtra("id_nota", id_not_lista)
-        intentAddTarea.putExtra("ventana", "Lista")
-
-        //var resultado = context.startActivityForResult(intentAddTarea)
-        //var t = resultLauncher.launch(intentAddTarea)
-
-        startActivityForResult(intentAddTarea, 1)
-        Log.d("CHEMA", "AQUI")
-    }
-
-    var resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                // There are no request codes
-                val data: Intent? = result.data
-                // Get String data from Intent
-                //val returnString = data!!.getStringExtra("valorEdicionV2")
-                val new_tarea: Tarea = data!!.getSerializableExtra("new_tarea") as Tarea
-                addTareaLista(new_tarea)
-            }
-        }
-
     fun add_tarea_AlertDialog() {
         alertDialogTarea()
     }
@@ -267,28 +242,5 @@ class AddListaActivity : AppCompatActivity() {
         }
     }
 
-
-    /*
-    override fun onBackPressed() {
-        AlertDialog.Builder(this)
-            .setTitle(getString(R.string.salir_sin_guardar))
-            .setMessage(getString(R.string.perder_cambios))
-            .setPositiveButton(getString(R.string.salir)) { view, _ ->
-                if (!modificando) {
-                    borrarTareasNoModificadas()
-                }
-                super.onBackPressed()
-                view.dismiss()
-            }
-            .setNegativeButton(getString(R.string.cancelar)) { view, _ ->
-                //super.onBackPressed()
-                view.dismiss()
-            }
-            .setCancelable(true)
-            .create()
-            .show()
-    }
-
-     */
 
 }

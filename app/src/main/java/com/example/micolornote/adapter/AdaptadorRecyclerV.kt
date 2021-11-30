@@ -153,13 +153,6 @@ class AdaptadorRecyclerV(
         return notaDeTexto
     }
 
-    fun getNotaLista(nota: Nota, context: AppCompatActivity): NotaDeTareas? {
-        var nota: Nota? = Conexion.obtenerNota(context, nota.id_nota.toString())
-        var notaDeTareas: NotaDeTareas? =
-            Conexion.obtenerNotaListaTareas(context, nota?.id_nota.toString())
-        return notaDeTareas
-    }
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val titulo = view.findViewById<TextView>(R.id.txtTituloNota)
