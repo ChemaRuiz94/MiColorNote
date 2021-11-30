@@ -85,7 +85,13 @@ class AdaptadorRecyclerV(
                     checkModificar(nota, context)
 
                     view.dismiss()
-                }.setNegativeButton(R.string.cancelar) { view, _ ->
+                }.setNegativeButton("COMPARTIR POR SMS") { view, _ ->
+
+                    // Modificar nota
+                    checkComparitr(nota, context)
+
+                    view.dismiss()
+                }.setNeutralButton(R.string.cancelar) { view, _ ->
                     //cancela
                     view.dismiss()
                 }.create().show()
@@ -126,6 +132,17 @@ class AdaptadorRecyclerV(
             intentListNote.putExtra("nota", nota)
 
             context.startActivity(intentListNote)
+        }
+    }
+
+    fun checkComparitr(nota: Nota, context: AppCompatActivity) {
+        if (nota.tipo == 1) {
+            Toast.makeText(context," compartir pos SMS", Toast.LENGTH_SHORT)
+                .show()
+
+        } else {
+            Toast.makeText(context,"La lista de tareas no se puede compartir pos SMS", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

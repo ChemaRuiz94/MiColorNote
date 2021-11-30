@@ -36,4 +36,9 @@
     <string name="tarea_mod_error">Il n\'y a pas une telle tâche</string>
     <string name="idioma">langage</string>
     <string name="add_opcion">Les choix</string>
+    <string name="titulo_buscar_obligatorio">Entrez un titre pour rechercher</string>
+    <string name="spanish">ESPAGNOL</string>
+    <string name="englsih">ANGLAIS</string>
+    <string name="frances">FRANÇAIS</string>
+    <string name="salir_app">Fermer l\'application?</string>
 </resources>

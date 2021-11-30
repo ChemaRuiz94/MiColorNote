@@ -36,4 +36,9 @@
     <string name="tarea_mod_error">The task does not exist</string>
     <string name="idioma">language</string>
     <string name="add_opcion">Options</string>
+    <string name="titulo_buscar_obligatorio">Search by title</string>
+    <string name="spanish">SPANISH</string>
+    <string name="englsih">ENGLISH</string>
+    <string name="frances">FRENCH</string>
+    <string name="salir_app">Close App?</string>
 </resources>

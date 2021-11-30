@@ -35,5 +35,10 @@
     <string name="idioma">"Idioma"</string>
     <string name="add_opcion">Opciones</string>
     <string name="titulo_tareas_obligatorio">Ponle un titulo a la tarea</string>
+    <string name="titulo_buscar_obligatorio">Introduce un titulo para buscar</string>
+    <string name="spanish">ESPAÑOL</string>
+    <string name="englsih">INGLÉS</string>
+    <string name="frances">FRANCÉS</string>
+    <string name="salir_app">¿Salir de la aplicacion?</string>
     <string name="texto_tarea">Texto tarea...</string>
 </resources>
