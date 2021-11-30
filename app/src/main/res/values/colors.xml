@@ -9,8 +9,13 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="my_yellow_background">#e8ba0e</color>
+    <color name="my_green_background">#46ca82</color>
+    <color name="my_blue_background">#50e4fb</color>
+    <color name="my_dark_blue_background">#0d7281</color>
+    <color name="my_dark_green_background">#96fb50</color>
     <color name="my_brown_background">#714212</color>
     <color name="my_yellow_selected">#f5f068</color>
     <color name="my_blue_selected">#212df2</color>
     <color name="my_brown_textBox">#be7b34</color>
+    <color name="my_blue_textBox">#96f1cf</color>
 </resources>

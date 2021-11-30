@@ -47,7 +47,8 @@ class AdaptadorRecyclerV(
         holder.titulo.text = nota.titulo
         holder.fecha.text = nota.fecha
         holder.hora.text = nota.hora_nota
-        val color: Int = (R.color.my_yellow_background)
+        //val color: Int = (R.color.my_yellow_background)
+
 
         if (nota.tipo != 1){
             holder.img.setImageResource(R.drawable.ic_baseline_format_list_numbered_rtl_24)

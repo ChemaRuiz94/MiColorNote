@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddListaActivity"
-    android:background="@color/my_yellow_background">
+    android:background="@color/my_blue_background">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="413dp"
         android:layout_height="115dp"
-        android:background="@color/my_brown_background"
+        android:background="@color/my_dark_blue_background"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,16 +19,20 @@
 
         <EditText
             android:id="@+id/ed_titulo_lista"
+            style="@style/ModTareaText"
             android:layout_width="270dp"
             android:layout_height="60dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:background="@color/my_brown_textBox"
+            android:background="@color/my_blue_textBox"
             android:ems="10"
             android:hint="@string/titulo"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/my_blue_selected"
+            android:textColorHint="@color/my_blue_selected" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            style="style/Widget.App.ExtendedFloatingActionButton"
             android:id="@+id/floating_btn_save_lista"
             android:layout_width="110dp"
             android:layout_height="59dp"
@@ -69,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
         app:layout_constraintVertical_bias="0.238"
-        app:srcCompat="@drawable/ic_note_add"
+        app:srcCompat="@drawable/ic_baseline_note_add_blue_24"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
 
