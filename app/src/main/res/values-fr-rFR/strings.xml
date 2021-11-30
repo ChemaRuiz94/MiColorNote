@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MiColorNote</string>
+    <string name="tipo">Quel genre de note voulez-vous ?</string>
+    <string name="buscador_nota">Recherche note par titre.</string>
+    <string name="nota_texto">TEXTE NOTE</string>
+    <string name="nota_tareas">CHOSES À FAIRE</string>
+    <string name="titulo">Titre...</string>
+    <string name="titulo_nota_texto_obligatorio">Donnez un titre à la note</string>
+    <string name="titulo_lista_tareas_obligatorio">Donnez un titre à la liste</string>
+    <string name="titulo_tareas_obligatorio">Donnez un titre à la tâche</string>
+    <string name="texto_obligatoiro">La note ne peut pas être vide</string>
+    <string name="tareas_obligatoiro">Ajouter au moins une tâche à la liste</string>
+    <string name="add_tarea">Ajouter une tâche</string>
+    <string name="texto_tarea">Texte de la tâche...</string>
+    <string name="add">AJOUTER</string>
+    <string name="modificar">"  MODIFIER"</string>
+    <string name="aceptar">ACCEPTER</string>
+    <string name="cancelar">ANNULER</string>
+    <string name="eliminar">SUPPRIMER</string>
+    <string name="salir">SORTIR</string>
+    <string name="foto">PHOTO</string>
+    <string name="mod_tarea">Modifier la tâche</string>
+    <string name="modificar_nota">Voulez-vous modifier cette note ?</string>
+    <string name="eliminar_nota">Voulez-vous supprimer cette note ?</string>
+    <string name="eliminar_tarea">Voulez-vous supprimer cette tâche ?</string>
+    <string name="salir_sin_guardar">Voulez-vous quitter sans enregistrer ?</string>
+    <string name="perder_cambios">Vous perdrez les modifications non enregistrées</string>
+    <string name="lista_guardada">Liste ENREGISTRÉE correctement</string>
+    <string name="lista_modificada">Liste MODIFIEE correctement</string>
+    <string name="lista_eliminada">Liste SUPPRIMÉE correctement</string>
+    <string name="nota_guardada">Note textuelle ENREGISTRÉE correctement</string>
+    <string name="nota_modificada">Note textuelle MODIFIÉE correctement</string>
+    <string name="nota_eliminada">Note de texte SUPPRIMÉE correctement</string>
+    <string name="tarea_mod">Tâche MODIFIÉE correctement</string>
+    <string name="tarea_mod_error">Il n\'y a pas une telle tâche</string>
+    <string name="idioma">langage</string>
+    <string name="add_opcion">Les choix</string>
+    <string name="titulo_buscar_obligatorio">Entrez un titre pour rechercher</string>
+    <string name="spanish">ESPAGNOL</string>
+    <string name="englsih">ANGLAIS</string>
+    <string name="frances">FRANÇAIS</string>
+    <string name="salir_app">Fermer l\'application?</string>
+</resources>

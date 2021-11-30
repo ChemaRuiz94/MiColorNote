@@ -76,6 +76,30 @@ object Conexion {
 
     }
 
+    fun obtenerNotasPorNombre(contexto: AppCompatActivity, nombre: String): ArrayList<Nota> {
+        var notas: ArrayList<Nota> = ArrayList(1)
+
+        val admin = AdminSQLiteConexion(contexto, nombreBD, null, 1)
+        val bd = admin.writableDatabase
+        val fila = bd.rawQuery(
+            "select ${Constantes.ID_NOTA},${Constantes.TITULO_NOTA},${Constantes.FECHA_NOTA},${Constantes.HORA_NOTA},${Constantes.TIPO_NOTA} from ${Constantes.TAB_NOTAS} where ${Constantes.TITULO_NOTA}='${nombre}'",
+            null
+        )
+        while (fila.moveToNext()) {
+            var nota: Nota = Nota(
+                fila.getString(0),
+                fila.getString(1),
+                fila.getString(2),
+                fila.getString(3),
+                fila.getInt(4)
+            )
+            notas.add(nota)
+        }
+        bd.close()
+        return notas
+
+    }
+
     fun modNotaTexto(contexto: AppCompatActivity, id: String, n: NotaDeTexto): Int {
         val admin = AdminSQLiteConexion(contexto, Constantes.nombreBD, null, 1)
         val bd = admin.writableDatabase
@@ -209,7 +233,7 @@ object Conexion {
         regTarea.put("${Constantes.ID_TAREA_CRUCE}", tarea.id_Nota)
         regTarea.put("${Constantes.TEXTO_TAREA}", tarea.texto_tarea)
         regTarea.put("${Constantes.TAREA_REALIZADA}", tarea.tarea_realizada)
-        //regTarea.put("${Constantes.FOTO_TAREA}", tarea.foto_tarea)
+        regTarea.put("${Constantes.FOTO_TAREA}", tarea.foto_tarea)
         val cant = bd.update(
             "${Constantes.TAB_TAREAS}",
             regTarea,
